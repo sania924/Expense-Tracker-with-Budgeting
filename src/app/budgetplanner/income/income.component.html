@@ -1,0 +1,75 @@
+ <div class="container-fluid background">
+    <div class="d-flex justify-content-center p-3">
+        <h3 class="text-white"> Income Dashboard
+        </h3>
+    </div>
+</div>
+
+<div class="container border-1" style="margin-top: 30px;">
+    <h2>Income</h2>
+    <form action [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
+
+        <div class="row ">
+            <div class="col-4 form-group">
+
+                <select formControlName="month" id="month" class="form-control"
+                    (change)="onChange($event)">
+                    <option value disabled>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                </select>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4 form-group">
+                <p>hello</p>
+            </div>
+
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <label for class="mb-1">Investment</label>
+
+                <select formControlName="investments" id="investments"
+                    class="form-control"
+                    [class.disabled-dropdown]="!monthSelected">
+                    <option value disabled>Select Investments</option>
+                    <option value="401(k)">401(k)</option>
+                    <option value="Stocks">Stocks</option>
+                    <option value="Real Estate">Real Estate</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label for class="mb-1">Source of Income</label>
+                <select formControlName="source" id="source"
+                    class="form-control"
+                    [class.disabled-dropdown]="!monthSelected">
+                    <option value disabled>Select Source</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelancing">Freelancing</option>
+                    <option value="Rental Income">Rental Income</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label for class="mb-1">Amount</label>
+                <input type="number" formControlName="amount" id="amount"
+                    class="form-control"
+                    placeholder="Enter amount"
+                    [class.disabled-dropdown]="!monthSelected">
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 ">
+                <div class="d-flex justify-content-end">
+                    <button type="button"
+                        class="btn btn-light float-right" (click)="onSubmit()"
+                        [class.disabled-dropdown]="!monthSelected">Add</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr>
+
+</div>

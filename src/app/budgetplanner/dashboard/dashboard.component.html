@@ -1,0 +1,134 @@
+<app-sidenav></app-sidenav>
+<div class="container mt-7">
+    <div class="row row-cols-1 row-cols-md-2 g-4 " style="margin-top: 20px;">
+        <!-- Income card -->
+        <div class="col">
+            <div class="card">
+                <!-- <img
+                    src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap"
+                    class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h4>Income</h4>
+                    <hr>
+                    <div>
+                        <h5>Last few Months</h5>
+                        <ul class style="text-decoration: none;">
+                            <li class=" border-none" style="list-style: none;"
+                                *ngFor="let monthincome of lastMonthsIncome">{{monthincome}}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Current Month</h5>
+                        <span
+                            class="card-text ">{{currentMonthIncome}}</span>
+                        <button type="button"
+                            class="btn btn-info px-2 float-right"
+                            style="float: inline-end;"
+                            (click)="onIncome()">
+                            View</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Expense Card -->
+        <div class="col">
+            <div class="card">
+                <!-- <img
+                    src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap"
+                    class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h4>Expenses</h4>
+                    <hr>
+                    <div>
+                        <h5>Last few Months</h5>
+                        <ul class style="text-decoration: none;">
+                            <li class=" border-none" style="list-style: none;"
+                                *ngFor="let monthexpenses of lastMonthsExpense">{{monthexpenses}}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Current Month</h5>
+                        <span
+                            class="card-text ">{{currentMonthExpense}}</span>
+                        <button type="button"
+                            class="btn btn-info px-2 float-right"
+                            style="float: inline-end;"
+                            (click)="onExpense()">
+                            View</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- To Do Transaction -->
+        <div class="col">
+            <div class="card">
+                <!-- <img
+                    src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap"
+                    class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h4>To Do Transactions</h4>
+                    <hr>
+                    <div>
+                        <h5>Last few Months</h5>
+                        <ul class style="text-decoration: none;">
+                            <li class=" border-none" style="list-style: none;"
+                                *ngFor="let item of todoTransactions">{{item.description}}</li>
+                        </ul>
+                    </div>
+                    <div>
+
+                        <button type="button"
+                            class="btn btn-info px-2 float-right"
+                            style="float: inline-end;"
+                            (click)="onTodo()">
+                            View</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Total -->
+        <div class="col">
+            <div class="card">
+                <!-- <img
+                    src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap"
+                    class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h4>Total Incomes</h4>
+                    <hr>
+                    <div class="d-flex gap-2">
+                        <h5>Current Month Income</h5>
+                        <p
+                            style="font-size: 20px;">{{totalCurrentMonthIncome}}</p>
+
+                    </div>
+                    <div class="d-flex gap-2">
+                        <h5>Current Month Expenses</h5>
+                        <p
+                            style="font-size: 20px;">{{totalCurrentMonthExpense}}</p>
+
+                    </div>
+
+                    <hr>
+                    <div class="d-flex gap-2">
+                        <h5>Current Month Saving :</h5>
+                        <p class
+                            style="font-size: 20px;">{{currentMonthSavings}}</p>
+
+                    </div>
+
+                    <!-- <div>
+                        <button type="button"
+                            class="btn btn-info px-2 float-right"
+                            style="float: inline-end;"
+                            (click)="onTodo()">
+                            View</button>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

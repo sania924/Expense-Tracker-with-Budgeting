@@ -1,0 +1,47 @@
+<div class="navbar">
+    <h2>
+        BUDGET PLANNER
+    </h2>
+</div>
+<div class="login-container">
+    <!-- login -->
+    <form [formGroup]="loginForm" *ngIf="activateForm==='login' "
+        (ngSubmit)="submitloginForm()">
+        <h2>Login Form</h2>
+        <div class="form-group">
+            <input type="email" class="form-control" formControlName="email"
+                placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control"
+                formControlName="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p (click)="toggleForm('register')">Don't Have an Account?
+            <span class="highlighted">Register</span>
+
+        </p>
+    </form>
+    <!-- register -->
+    <form [formGroup]="registerFrom" *ngIf="activateForm==='register' "
+        (ngSubmit)="submitregisterForm()">
+        <h2>Register Form</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" formControlName="userName"
+                placeholder="Enter your Name">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" formControlName="email"
+                placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control"
+                formControlName="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <p (click)="toggleForm('login')">Don't Have an Account?
+            <span class="highlighted">Login</span>
+
+        </p>
+    </form>
+</div>
