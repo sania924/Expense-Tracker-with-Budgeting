@@ -22,12 +22,12 @@
             </div>
             <div class="col-4"></div>
             <div class="col-4 form-group">
-                <p>hello</p>
+                Total Income for {{ selectedMonth }}: ${{
+                calculateTotalIncome(selectedMonth) }}
             </div>
-
         </div>
         <div class="row mt-4">
-            <div class="col-4">
+            <div class="col-4 form-group">
                 <label for class="mb-1">Investment</label>
 
                 <select formControlName="investments" id="investments"
@@ -39,7 +39,7 @@
                     <option value="Real Estate">Real Estate</option>
                 </select>
             </div>
-            <div class="col-4">
+            <div class="col-4 form-group">
                 <label for class="mb-1">Source of Income</label>
                 <select formControlName="source" id="source"
                     class="form-control"
@@ -50,17 +50,16 @@
                     <option value="Rental Income">Rental Income</option>
                 </select>
             </div>
-            <div class="col-4">
+            <div class="col-4 form-group">
                 <label for class="mb-1">Amount</label>
                 <input type="number" formControlName="amount" id="amount"
                     class="form-control"
                     placeholder="Enter amount"
                     [class.disabled-dropdown]="!monthSelected">
             </div>
-
         </div>
         <div class="row mt-3">
-            <div class="col-12 ">
+            <div class="col-12 form-group ">
                 <div class="d-flex justify-content-end">
                     <button type="button"
                         class="btn btn-light float-right" (click)="onSubmit()"
@@ -71,5 +70,27 @@
         </div>
     </form>
     <hr>
-
+    <h3>Income List - {{ selectedMonth }}</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Source of Income</th>
+                <th>Amount</th>
+                <th>Investments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let income of getFilteredIncomes()">
+                <td>{{ income.source }}</td>
+                <td>{{ income.amount }}</td>
+                <td>{{ income.investments }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-flex gap-3">
+        <button class="btn btn-primary" (click)="onBack()">Back</button>
+        <div class="form-group">
+        </div>
+        <button class="btn btn-primary" (click)="saveForm()">Save</button>
+    </div>
 </div>

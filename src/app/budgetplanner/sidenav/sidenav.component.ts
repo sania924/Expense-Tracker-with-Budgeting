@@ -19,6 +19,6 @@ export class SidenavComponent {
     this.router.navigate(['/budgetplanner/history']);
   }
   onLogout() {
-    this.router.navigate(['/budgetplanner/login']);
+    this.router.navigate(['']);
   }
 }
